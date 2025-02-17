@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            background-image: url('tunnel.gif'); /* Replace 'tunnel.gif' with your actual image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00ff00;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: 0.3s;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .home-btn:hover {
+            background: #00cc00;
+        }
+
+        /* Inline SVG Text Animation */
+        .logo {
+            width: 500px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .skillnexus-text {
+            fill: none;
+            stroke: #00ff00;
+            stroke-width: 2;
+            font-size: 50px;
+            font-family: Arial, sans-serif;
+            stroke-dasharray: 800;
+            stroke-dashoffset: 800;
+            animation: revealText 3s ease-in-out forwards;
+        }
+
+        @keyframes revealText {
+            0% {
+                stroke-dashoffset: 800;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Dialog Box */
+        .dialog-box {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            text-align: center;
+            transition: transform 0.3s;
+            z-index: 3;
+        }
+
+        .dialog-box button {
+            margin: 10px;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        .yes-btn {
+            background: #28a745;
+            color: white;
+        }
+
+        .no-btn {
+            background: #dc3545;
+            color: white;
+        }
+
+        .no-btn:hover, .yes-btn:hover {
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Animated Inline SVG -->
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: auto;">
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100">
+            <text x="50" y="70" class="skillnexus-text">
+                SkillNexus
+            </text>
+        </svg>
+    </div>
+
+    <!-- Error Message -->
+    <div class="container">
+        <div class="error-code">404</div>
+        <div class="message">Oops! The page you are looking for does not exist.</div>
+        <button class="home-btn" onclick="showDialog()">Go Home</button>
+    </div>
+
+    <!-- Dialog Box -->
+    <div class="dialog-box" id="dialog">
+        <p>Are you sure you want to go home?</p>
+        <button class="yes-btn" onclick="window.location.href='/'">Yes</button>
+        <button class="no-btn" onmouseover="moveDialog()">No</button>
+    </div>
+
+    <script>
+        function showDialog() {
+            let dialog = document.getElementById('dialog');
+            dialog.style.display = 'block';
+
+            // Position at center initially
+            dialog.style.left = "50%";
+            dialog.style.top = "50%";
+            dialog.style.transform = "translate(-50%, -50%)";
+        }
+
+        function moveDialog() {
+            let dialog = document.getElementById('dialog');
+
+            // Get viewport dimensions
+            let maxWidth = window.innerWidth - dialog.clientWidth;
+            let maxHeight = window.innerHeight - dialog.clientHeight;
+
+            // Generate random positions
+            let randomX = Math.random() * maxWidth;
+            let randomY = Math.random() * maxHeight;
+
+            dialog.style.left = randomX + "px";
+            dialog.style.top = randomY + "px";
+        }
+    </script>
+
+</body>
+</html>
