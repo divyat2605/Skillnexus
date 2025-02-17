@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avrix Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: black;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .hero {
+            position: relative;
+            text-align: left;
+            max-width: 1200px;
+            margin: auto;
+            padding: 150px 50px;
+        }
+        .tagline {
+            display: inline-block;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        h1 {
+            font-size: 60px;
+            margin: 20px 0;
+        }
+        .outline {
+            color: transparent;
+            -webkit-text-stroke: 1px white;
+        }
+        .badge {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px;
+        }
+        .badge span {
+            display: inline-block;
+            animation: rotateText 5s linear infinite;
+        }
+        @keyframes rotateText {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">AVRIX</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <span class="tagline">Creative digital studio</span>
+        <h1>BUILD GREAT <span class="outline">PORTFOLIO</span></h1>
+        <div class="badge">
+            <span>AWARD WINNING AGENCY</span>
+        </div>
+    </section>
+</body>
+</html>
